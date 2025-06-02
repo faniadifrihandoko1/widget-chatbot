@@ -1,9 +1,8 @@
 import react from "@vitejs/plugin-react";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import path from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,7 +23,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/main.tsx"),
       name: "chatWidget",
-      fileName: () => "chat-widget", // 👉 ubah di sini
+      fileName: (format) => `chat-widget.${format}.js`,
       formats: ["iife"], // hanya satu format
     },
     rollupOptions: {
