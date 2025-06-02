@@ -1,0 +1,82 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat Widget Docs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 700px;
+        margin: 2rem auto;
+        padding: 1rem;
+      }
+      code {
+        background: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+      }
+      pre {
+        background: #f5f5f5;
+        padding: 1rem;
+        overflow-x: auto;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🧩 Chat Widget Integration Guide</h1>
+    <p>
+      Berikut adalah cara mengintegrasikan Chat Widget ke dalam website Anda.
+    </p>
+
+    <h2>📦 1. Tambahkan Script</h2>
+    <pre><code>&lt;script src="https://yourdomain.com/chat-widget.js"&gt;&lt;/script&gt;</code></pre>
+
+    <h2>⚙️ 2. Siapkan Tempat untuk Widget</h2>
+    <pre><code>&lt;div id="my-widget"&gt;&lt;/div&gt;</code></pre>
+
+    <h2>🚀 3. Inisialisasi Widget</h2>
+    <pre><code>&lt;script&gt;
+  window.renderChatWidget("my-widget", {
+    token: "xxx",
+    user_profile: {
+      name: "Fani Adi Frihandoko",
+      nip: "012",
+      gender: "Laki-laki",
+      birthdate: "01/01/1990"
+    },
+    cakra_chat_api_key: "ba166318-3de1-4e48-9d52-7f3075acb142"
+  });
+&lt;/script&gt;</code></pre>
+
+    <h2>📘 Props yang Didukung</h2>
+    <ul>
+      <li><code>token</code> (string) – Token autentikasi user</li>
+      <li><code>user_profile</code> (object) – Profil user</li>
+      <li>
+        <code>cakra_chat_api_key</code> (string) – API key dari sistem Cakra
+      </li>
+    </ul>
+
+    <p>🎉 Selesai! Chatbot Anda kini aktif di halaman Anda.</p>
+    <div
+      id="widget-root"
+      style="position: fixed; bottom: 20px; right: 20px; z-index: 9999"
+    ></div>
+    <script src="./chat-widget.js"></script>
+    <script>
+      window.renderChatWidget("widget-root", {
+        token: "dummy-token",
+        user_profile: {
+          name: "Fani Adi Frihandoko",
+          nip: "012",
+          gender: "Laki-laki",
+          birthdate: "01/01/1990",
+        },
+        cakra_chat_api_key: "ba166318-3de1-4e48-9d52-7f3075acb142",
+      });
+    </script>
+  </body>
+</html>
