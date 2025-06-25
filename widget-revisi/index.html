@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altius Chat Widget Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .content h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .content h3 {
+            color: #764ba2;
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code-block::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .demo-instruction {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #1976d2;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #856404;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #155724;
+        }
+        
+        .api-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .api-table th,
+        .api-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .api-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .api-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #28a745;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .step-number {
+            background: #28a745;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .api-table {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Altius Chat Widget</h1>
+            <p>Widget chatbot modern yang mudah diintegrasikan ke website Anda dengan hanya 2 baris script</p>
+        </div>
+        
+        <!-- Fitur Utama -->
+        <div class="content">
+            <h2>🚀 Fitur Utama</h2>
+            <div class="features">
+                <div class="feature">
+                    <h4>🔧 Integrasi Mudah</h4>
+                    <p>Hanya perlu 2 script untuk mengintegrasikan widget ke website Anda</p>
+                </div>
+                <div class="feature">
+                    <h4>💬 Real-time Chat</h4>
+                    <p>Interface chat yang responsif dengan loading indicator dan animasi smooth</p>
+                </div>
+                <div class="feature">
+                    <h4>📱 Responsive Design</h4>
+                    <p>Tampilan yang optimal di desktop maupun mobile device</p>
+                </div>
+                <div class="feature">
+                    <h4>🎨 Modern UI</h4>
+                    <p>Desain modern dengan gradient biru dan animasi yang menarik</p>
+                </div>
+                <div class="feature">
+                    <h4>🔐 Session Management</h4>
+                    <p>Otomatis mengelola session chat dengan API backend</p>
+                </div>
+                <div class="feature">
+                    <h4>⚡ Lightweight</h4>
+                    <p>File JavaScript yang sudah dioptimasi untuk performa terbaik</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panduan Instalasi -->
+        <div class="content">
+            <h2>📋 Panduan Instalasi</h2>
+            
+            <h3>Langkah 1: Persiapan</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Download file widget:</strong> Unduh file <code>altius-chat-widget.min.js</code> dan upload ke server Anda
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Siapkan kredensial API:</strong> Pastikan Anda memiliki <code>chat_api_key</code> dan <code>chat_api_tenant</code> yang valid
+            </div>
+
+            <h3>Langkah 2: Integrasi ke Website</h3>
+            <p>Tambahkan 2 script berikut ke halaman HTML Anda, sebaiknya sebelum tag <code>&lt;/body&gt;</code>:</p>
+
+            <div class="code-block" data-lang="HTML">
+&lt;!-- Script konfigurasi --&gt;
+&lt;script&gt;
+  window.session_id = ""; // Optional - kosongkan untuk auto-generate
+  window.chat_api_key = "your_api_key_here"; // Required - API key Anda
+  window.chat_api_tenant = "your_tenant_id_here"; // Required - Tenant ID Anda
+  window.personal_data = "Data Personal User"; // Required - Data personal user
+&lt;/script&gt;
+
+&lt;!-- Widget script --&gt;
+&lt;script src="altius-chat-widget.min.js"&gt;&lt;/script&gt;
+            </div>
+
+            <div class="success">
+                <strong>✅ Selesai!</strong> Widget akan otomatis muncul di pojok kanan bawah halaman Anda.
+            </div>
+        </div>
+
+        <!-- Konfigurasi -->
+        <div class="content">
+            <h2>⚙️ Konfigurasi</h2>
+            
+            <h3>Variabel Konfigurasi</h3>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Variabel</th>
+                        <th>Type</th>
+                        <th>Required</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>window.chat_api_key</code></td>
+                        <td>String</td>
+                        <td>✅ Ya</td>
+                        <td>API key untuk autentikasi dengan server</td>
+                    </tr>
+                    <tr>
+                        <td><code>window.chat_api_tenant</code></td>
+                        <td>String</td>
+                        <td>✅ Ya</td>
+                        <td>Tenant ID untuk identifikasi organisasi</td>
+                    </tr>
+                    <tr>
+                        <td><code>window.personal_data</code></td>
+                        <td>String</td>
+                        <td>✅ Ya</td>
+                        <td>Data personal user untuk konteks chat</td>
+                    </tr>
+                    <tr>
+                        <td><code>window.session_id</code></td>
+                        <td>String</td>
+                        <td>❌ Tidak</td>
+                        <td>Session ID (auto-generate jika kosong)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>⚠️ Penting:</strong> Jangan expose API key di client-side untuk production. Gunakan proxy server atau environment yang aman.
+            </div>
+        </div>
+
+        <!-- API Endpoints -->
+        <div class="content">
+            <h2>🔌 API Endpoints</h2>
+            
+            <h3>1. Create Session</h3>
+            <div class="code-block" data-lang="HTTP">
+GET /create_session
+Host: aionegml-dev-c3aqcqg7abhhb2ag.southeastasia-01.azurewebsites.net
+Headers:
+  qubisa-token-key: {your_api_key}
+            </div>
+            
+            <p><strong>Response:</strong></p>
+            <div class="code-block" data-lang="JSON">
+{
+  "session_id": "staffbot1_1750821416.269724"
+}
+            </div>
+
+            <h3>2. Send Chat Message</h3>
+            <div class="code-block" data-lang="HTTP">
+POST /chat
+Host: aionegml-dev-c3aqcqg7abhhb2ag.southeastasia-01.azurewebsites.net
+Headers:
+  Content-Type: application/json
+  qubisa-token-key: {your_api_key}
+
+Body:
+{
+  "session_id": "{session_id}",
+  "prompt": "{user_message}",
+  "user_profile": "{personal_data}"
+}
+            </div>
+            
+            <p><strong>Response:</strong></p>
+            <div class="code-block" data-lang="JSON">
+{
+  "response": "Halo! Ada yang bisa saya bantu?",
+  "session_id": "staffbot1_1750821416.269724",
+  "timestamp": "2024-01-15T10:30:00Z"
+}
+            </div>
+        </div>
+
+        <!-- Customization -->
+        <div class="content">
+            <h2>🎨 Kustomisasi</h2>
+            
+            <h3>CSS Selectors</h3>
+            <p>Anda dapat mengkustomisasi tampilan widget dengan menambahkan CSS custom:</p>
+            
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Selector</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>#chat-widget</code></td>
+                        <td>Container utama widget</td>
+                    </tr>
+                    <tr>
+                        <td><code>.chat-toggle</code></td>
+                        <td>Tombol toggle chat</td>
+                    </tr>
+                    <tr>
+                        <td><code>.chat-container</code></td>
+                        <td>Container chat window</td>
+                    </tr>
+                    <tr>
+                        <td><code>.chat-header</code></td>
+                        <td>Header chat window</td>
+                    </tr>
+                    <tr>
+                        <td><code>.chat-messages</code></td>
+                        <td>Area pesan chat</td>
+                    </tr>
+                    <tr>
+                        <td><code>.user-message</code></td>
+                        <td>Pesan dari user</td>
+                    </tr>
+                    <tr>
+                        <td><code>.bot-message</code></td>
+                        <td>Pesan dari bot</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Contoh Kustomisasi</h3>
+            <div class="code-block" data-lang="CSS">
+/* Mengubah warna tema */
+.chat-toggle,
+.chat-header,
+.user-message .message-text,
+.chat-send {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important;
+}
+
+/* Mengubah posisi widget */
+#chat-widget {
+    bottom: 30px !important;
+    right: 30px !important;
+}
+
+/* Mengubah ukuran chat window */
+.chat-container {
+    width: 400px !important;
+    height: 600px !important;
+}
+            </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="content">
+            <h2>🔧 Troubleshooting</h2>
+            
+            <h3>Masalah Umum</h3>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Widget tidak muncul:</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Pastikan file <code>altius-chat-widget.min.js</code> dapat diakses</li>
+                    <li>Cek console browser untuk error JavaScript</li>
+                    <li>Pastikan semua variabel required sudah diset</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Pesan tidak terkirim:</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Cek koneksi internet</li>
+                    <li>Pastikan API key valid dan tidak expired</li>
+                    <li>Cek network tab di developer tools untuk error API</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Session tidak terbuat:</strong>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li>Pastikan endpoint create_session dapat diakses</li>
+                    <li>Cek header <code>qubisa-token-key</code> sudah benar</li>
+                    <li>Pastikan tidak ada CORS issue</li>
+                </ul>
+            </div>
+
+            <h3>Debug Mode</h3>
+            <p>Untuk debugging, buka Developer Tools (F12) dan cek tab Console untuk log error.</p>
+        </div>
+
+        <!-- Demo -->
+        <div class="content">
+            <h2>🎮 Demo Widget</h2>
+            <div class="demo-instruction">
+                <strong>💡 Cara menggunakan demo:</strong><br>
+                1. Lihat widget chat di pojok kanan bawah halaman ini<br>
+                2. Klik tombol chat untuk membuka widget<br>
+                3. Ketik pesan dan tekan Enter atau klik tombol kirim<br>
+                4. Widget akan menampilkan response simulasi dari bot
+            </div>
+            
+            <div class="success">
+                <strong>✅ Widget sudah aktif!</strong> Coba klik tombol chat di pojok kanan bawah untuk memulai percakapan.
+            </div>
+        </div>
+
+        <!-- Support -->
+        <div class="content">
+            <h2>📞 Support</h2>
+            <p>Jika Anda mengalami masalah atau membutuhkan bantuan:</p>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li>📧 Email: support@altius.com</li>
+                <li>📱 WhatsApp: +62 xxx-xxxx-xxxx</li>
+                <li>🌐 Website: https://altius.com/support</li>
+                <li>📚 Dokumentasi: https://docs.altius.com</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Script konfigurasi widget -->
+    <script>
+        window.session_id = ""; // Optional
+        window.chat_api_key = "ys9CcupuSP9l9fDAdfIWfxJ4hRnITEJlpxpc8jtKNcc1ELhITRyLfZIxAyvPGeBYoU0SB2lVDRlMwwEaTV"; // Required 
+        window.chat_api_tenant = "QU9K35univPdujD8Ovb3O6SW1LZMQ7uqMaG53rsRD8YIKXRZcgrK2RwlPVo7JFvJexmUVnxAbtt66u9mND"; // Required 
+        window.personal_data = "Data Personal Demo User"; // Required 
+    </script>
+
+    <!-- Widget script -->
+    <script src="altius-chat-widget.min.js"></script>
+</body>
+</html>

@@ -75,10 +75,8 @@ function App() {
   window.renderChatWidget("root", {
     token: "xxx",
     user_profile: {
-      name: "Fani",
-      nip: "012",
-      gender: "Laki-laki",
-      birthdate: "01/01/1990"
+      corp_id: "000",
+      NIP: "000210058"
     },
     cakra_chat_api_key: "your-api-key"
   });
